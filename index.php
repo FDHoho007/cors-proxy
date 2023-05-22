@@ -2,7 +2,7 @@
 
 $url = substr($_SERVER["REQUEST_URI"], 1);
 $http_origin = array_key_exists("HTTP_ORIGIN", $_SERVER) ? $_SERVER["HTTP_ORIGIN"] : null;
-$origin = str_replace("/", "", $http_origin);
+$origin = str_replace("/", "", strtolower($http_origin));
 if(str_starts_with("http:", $origin))
     $origin = substr($origin, 5);
 else if(str_starts_with("https:", $origin))
