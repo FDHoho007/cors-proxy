@@ -1,6 +1,6 @@
 <?php
 
-$url = substr($_SERVER["REQUEST_URI"], 1+11);
+$url = substr($_SERVER["REQUEST_URI"], 1);
 $http_origin = array_key_exists("HTTP_ORIGIN", $_SERVER) ? $_SERVER["HTTP_ORIGIN"] : null;
 $origin = str_replace("/", "", $http_origin);
 if(str_starts_with("http:", $origin))
