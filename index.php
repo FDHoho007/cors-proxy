@@ -5,7 +5,7 @@ $http_origin = array_key_exists("HTTP_ORIGIN", $_SERVER) ? $_SERVER["HTTP_ORIGIN
 $allowed_origins = [];
 foreach(getenv() as $env => $val) {
     if(str_starts_with($env, "ALLOWED_ORIGIN_")) {
-        $origin = str_replace("_", ".", strtolower(substr($env, 15)));
+        $origin = str_replace("_", "-", str_replace("__", ".", strtolower(substr($env, 15))));
         $allowed_origins[$origin] = explode(";", str_replace(" ", "", $val));
     }
 }
