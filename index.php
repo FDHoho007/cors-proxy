@@ -14,9 +14,9 @@ if($http_origin != null) {
     header("Access-Control-Allow-Origin: $http_origin");
     header("Access-Control-Request-Method: GET");
     $origin = str_replace("/", "", strtolower($http_origin));
-    if(str_starts_with("http:", $origin))
+    if(str_starts_with($origin, "http:"))
         $origin = substr($origin, 5);
-    else if(str_starts_with("https:", $origin))
+    else if(str_starts_with($origin, "https:"))
         $origin = substr($origin, 6);
     if(array_key_exists($origin, $allowed_origins)) {
         foreach($allowed_origins[$origin] as $host)
